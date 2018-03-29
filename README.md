@@ -1,1 +1,0 @@
-# ricardoquaresmavieira.github.io
