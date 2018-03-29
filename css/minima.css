@@ -180,12 +180,18 @@ a.navbar-brand, a.nav-link {
   @media screen and (max-width: 600px) {
     a.navbar-brand, a.nav-link {
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
       line-height: 32.175px; } }
   @media (min-width: 600px) and (max-width: 1024px) {
     a.navbar-brand, a.nav-link {
       text-transform: uppercase;
       letter-spacing: 0px; } }
+
+.navbar-toggler {
+  padding: 0 3.75px; }
+
+.navbar-toggler-icon {
+  width: 1em; }
 
 a.site-title:hover::after {
   content: "«Sai sempre prémio!»";

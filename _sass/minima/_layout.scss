@@ -27,13 +27,22 @@ a.navbar-brand, a.nav-link {
     color: $brand-color;
   }
   @include media-query($on-palm) {
-    @include smcaps(2px);
+    @include smcaps(1px);
     line-height: $base-line-height * $base-font-size * 1.5;
   }
   @media #{$tablet} {
     @include smcaps(0px);
   }
   
+}
+
+.navbar-toggler {
+  padding: 0 $spacing-unit/8;
+  
+}
+
+.navbar-toggler-icon {
+  width: 1em;
 }
 
 a.site-title:hover::after {
