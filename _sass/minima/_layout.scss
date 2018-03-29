@@ -1,0 +1,942 @@
+/**
+ * Site header
+ */
+
+.site-header {
+  padding: $spacing-unit/4 $spacing-unit;
+  border-top: 0px solid $grey-color-dark;
+
+  min-height: $spacing-unit * 1;
+
+  // Positioning context for the mobile navigation icon
+  position: relative;
+   @include media-query($on-laptop) {
+    padding-right: $spacing-unit/2;
+    padding-left: $spacing-unit/2;
+  }
+}
+
+a.navbar-brand, a.nav-link {
+  @include relative-font-size(1);
+  font-weight: 400;
+  line-height: $base-line-height * $base-font-size * 1.25;
+  @include smcaps(2px);
+  margin-bottom: 0;
+  color: #000;
+  &:hover {
+    color: $brand-color;
+  }
+  @include media-query($on-palm) {
+    @include smcaps(2px);
+    line-height: $base-line-height * $base-font-size * 1.5;
+  }
+  @media #{$tablet} {
+    @include smcaps(0px);
+  }
+  
+}
+
+a.site-title:hover::after {
+  
+    content: "«Sai sempre prémio!»";
+    position: absolute;
+    margin-left: 10px;
+    @include relative-font-size(0.75);
+    color: $grey-color;
+    @include smcaps(0px);
+    text-transform: none;
+}
+
+h2.panel-title {
+ padding: $spacing-unit/2 0;
+ &:hover {
+    color: $text-color;
+  }
+
+}
+
+.categories {
+  @include smcaps(2px);
+  @include relative-font-size(0.85);
+  line-height: $base-line-height * $base-font-size * 2.25;
+  color: $grey-color;
+  margin-bottom: 0px;
+  font-weight: 400;
+  text-align: center;
+  &.top-right {
+    text-align: right;
+    color: #000;
+  }
+  @include media-query($on-palm) {
+    @include smcaps(1px);
+    line-height: $base-line-height * $base-font-size * 1;
+  }
+  @media #{$tablet} {
+    @include smcaps(0px);
+  }
+}
+
+.categories-with-bar {
+  &::before { 
+    content: "{";
+    position: absolute;
+    margin-left: -10px;
+  }
+  &::after { 
+    content: "}";
+    position: absolute;
+    margin-left: 5px;
+  }
+}
+
+.p-autores {
+  .site-title, .categories.top-right, .categories {
+  @include media-query($on-palm) {
+    text-align: center;
+    display: inherit;
+    @include smcaps(1px);
+    line-height: $base-line-height * $base-font-size * 1.5;
+  }
+  }
+}
+
+
+.site-nav {
+  float: right;
+  line-height: $base-line-height * $base-font-size * 0.75;
+  margin-top: 0px;
+
+  .nav-trigger {
+      display: none;
+  }
+
+  .menu-icon {
+    display: none;
+  }
+
+  .page-link {
+    color: $text-color;
+    line-height: $base-line-height;
+
+    // Gaps between nav items, but not on the last one
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  @include media-query($on-palm) {
+    position: absolute;
+    top: 9px;
+    right: $spacing-unit / 2;
+    background-color: $background-color;
+    border: 1px solid $grey-color-light;
+    border-radius: 5px;
+    text-align: right;
+
+    label[for="nav-trigger"] {
+      display: block;
+      float: right;
+      width: 36px;
+      height: 36px;
+      z-index: 2;
+      cursor: pointer;
+    }
+
+    .menu-icon {
+      display: block;
+      float: right;
+      width: 36px;
+      height: 26px;
+      line-height: 0;
+      padding-top: 10px;
+      text-align: center;
+
+      > svg path {
+        fill: $grey-color-dark;
+      }
+    }
+
+    input ~ .trigger {
+      clear: both;
+      display: none;
+    }
+
+    input:checked ~ .trigger {
+      display: block;
+      padding-bottom: 5px;
+    }
+
+    .page-link {
+      display: block;
+      padding: 5px 10px;
+
+      &:not(:last-child) {
+        margin-right: 0;
+      }
+      margin-left: 20px;
+    }
+  }
+}
+
+.pos-absol {
+  @include media-query($on-palm) {
+    position: absolute;
+    right: 25px;
+    top: 15px;
+  }
+}
+
+.toggle-panel {
+    display: inline-block;
+    margin-top: $spacing-unit/3;
+    border: 1px solid $brand-color;
+    padding: 0 $spacing-unit/6;
+    @include border-radius(2px);
+    @include media-query($on-palm) {
+      margin-top: $spacing-unit/6;
+      margin-left: - $spacing-unit/6;
+    }
+  .barra {
+      width: $spacing-unit/2+5;
+      height: $spacing-unit/30;
+      background-color: $brand-color;
+      margin: $spacing-unit/6 0;
+      @include border-radius(2px);
+    }
+    &.close {
+      margin-right: $spacing-unit/3;
+      margin-top: $spacing-unit - 5;
+      @include media-query($on-palm) {
+      margin-right: 0;
+      margin-top: $spacing-unit/2 + 5;
+    }
+    }
+}
+
+.close {
+  position: absolute;
+  right: $spacing-unit/3+4;
+  width: $spacing-unit/2+10;
+  height: $spacing-unit/2+10;
+  opacity: 1;
+}
+
+.close:hover {
+  opacity: 0.3;
+}
+.close:before, .close:after {
+  position: absolute;
+  left: $spacing-unit/3+1;
+  content: ' ';
+  height: $spacing-unit/2+7;
+  width: $spacing-unit/30;
+  background-color: $brand-color;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}
+
+#scotch-panel{
+  border-left: 1px solid #000;
+  h2.panel-title {
+    padding-left: $spacing-unit;
+    text-align: center;
+    @include media-query($on-palm) {
+      padding-left: 0;
+  }
+
+  }
+  .multi-menu {
+    padding: 0;
+    @include relative-font-size(0.75);
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      border-top: 1px #000 solid;
+      border-right: 1px #000 solid;
+      ul {
+        border: 0;
+      }
+    }
+    li a {
+      display: block;
+      text-align: center;
+      padding: $spacing-unit/3 $spacing-unit/3;
+      border-bottom: 1px #000 solid;
+      color: #000;
+      @include smcaps(2px);
+      span {color: $brand-color;}
+      &.letra {
+        background-color: $grey-color-light;
+        color: #000;
+        @include media-query(768px) {
+          border-bottom: 1px #fff solid;
+        }
+      }
+      &:hover, &:focus {
+        background-color: $brand-color;
+        color: #fff;
+        text-decoration: none;
+        span {color: #fff;}
+      }
+      &:active, &.active {
+        background-color: $grey-color-light;
+        color: #000;
+        text-decoration: none;
+      }
+      &.active.collapsed {
+        background-color: transparent;
+        color: #000;
+      }
+    }
+  }     
+}
+
+.no-margin {
+  margin: 0;
+}
+
+/**
+ * Site footer
+ */
+.site-footer {
+  border-top: 1px solid #000;
+  padding: $spacing-unit/2 0;
+  min-height: $spacing-unit * 1;
+  line-height: $base-line-height * $base-font-size * 1;
+  .categories {
+    line-height: $base-line-height * $base-font-size * 1;
+  }
+}
+
+.footer-heading {
+  @include relative-font-size(1.125);
+  margin-bottom: $spacing-unit / 2;
+}
+
+.contact-list,
+.social-media-list {
+  list-style: none;
+  margin-left: 0;
+}
+
+.footer-col-wrapper {
+  @include relative-font-size(0.9375);
+  color: $grey-color;
+  margin-left: -$spacing-unit / 2;
+  @extend %clearfix;
+}
+
+.footer-col {
+  float: left;
+  margin-bottom: $spacing-unit / 2;
+  padding-left: $spacing-unit / 2;
+}
+
+.footer-col-1 {
+  width: -webkit-calc(35% - (#{$spacing-unit} / 2));
+  width:         calc(35% - (#{$spacing-unit} / 2));
+}
+
+.footer-col-2 {
+  width: -webkit-calc(20% - (#{$spacing-unit} / 2));
+  width:         calc(20% - (#{$spacing-unit} / 2));
+}
+
+.footer-col-3 {
+  width: -webkit-calc(45% - (#{$spacing-unit} / 2));
+  width:         calc(45% - (#{$spacing-unit} / 2));
+}
+
+@include media-query($on-laptop) {
+  .footer-col-1,
+  .footer-col-2 {
+    width: -webkit-calc(50% - (#{$spacing-unit} / 2));
+    width:         calc(50% - (#{$spacing-unit} / 2));
+  }
+
+  .footer-col-3 {
+    width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+    width:         calc(100% - (#{$spacing-unit} / 2));
+  }
+}
+
+@include media-query($on-palm) {
+  .footer-col {
+    float: none;
+    width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+    width:         calc(100% - (#{$spacing-unit} / 2));
+  }
+}
+
+.footer-right, .footer-left {
+  padding: $spacing-unit/2 $spacing-unit*2;
+  @include media-query($on-palm) {
+    padding: $spacing-unit/2 $spacing-unit;
+  }
+
+}
+
+/**
+ * Page content
+ */
+.page-content {
+  padding: 0 ;
+}
+
+.page-heading {
+  @include relative-font-size(1.25);
+}
+
+.post-list {
+  margin-left: 0;
+  list-style: none;
+
+  > li {
+    margin-bottom: $spacing-unit;
+  }
+}
+
+.post-meta {
+  font-size: $small-font-size;
+  color: $grey-color;
+}
+
+.post-link {
+  display: block;
+  @include relative-font-size(1.5);
+}
+
+
+
+/**
+ * Posts
+ */
+.post-header {
+  margin-bottom: $spacing-unit;
+}
+
+.post-title {
+  @include relative-font-size(1.25);
+  letter-spacing: 0px;
+  margin-bottom: $spacing-unit/3;
+  line-height: 1.25;
+  font-weight: 700;
+  @include smcaps(2px);
+
+
+  @include media-query($on-laptop) {
+    @include relative-font-size(1.5);
+  }
+}
+
+.post-content {
+  padding: $spacing-unit*2 $spacing-unit*2 $spacing-unit $spacing-unit*2;
+  margin-bottom: 0;
+  border-left: 1px solid #000;
+  @include media-query($on-palm) {
+    padding: $spacing-unit;
+   }
+
+
+  h2 {
+    @include relative-font-size(2);
+
+    @include media-query($on-laptop) {
+      @include relative-font-size(1.75);
+    }
+  }
+
+  h3 {
+    @include relative-font-size(1.625);
+
+    @include media-query($on-laptop) {
+      @include relative-font-size(1.375);
+    }
+  }
+
+  h4 {
+    @include relative-font-size(1.25);
+    margin-bottom: $spacing-unit;
+    
+    @include media-query($on-laptop) {
+      @include relative-font-size(1.125);
+    }
+  }
+}
+
+.subtitle {
+    margin-top: $spacing-unit;
+    margin-bottom: $spacing-unit/2;
+    display: block;
+    @include smcaps(2px);
+    @include relative-font-size(0.75);
+    color: $grey-color;
+    font-weight: 400;
+  }
+
+.post-img {
+  padding-right: 0;
+  background-color: $grey-color-xlight;
+}
+
+/**
+ * autores
+ */
+
+.mywrapper {
+  padding: $spacing-unit;
+  @include media-query($on-palm) {
+    padding: $spacing-unit/2;
+  }
+}
+
+  .lista-imagens {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    border-bottom: 2px solid $brand-color;
+      .categories {
+        line-height: $base-line-height * $base-font-size * 1;
+        display: block;
+        text-align: center;
+        margin-top: 0;
+        padding-bottom: $spacing-unit/3;
+        padding-top: $spacing-unit/3;
+        font-weight: 700;
+      }
+      ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+        li {
+          padding-bottom: $spacing-unit/3;
+          margin-bottom: $spacing-unit/3;
+          border-bottom: 0px solid $grey-color-light;
+        }
+      }
+      a {
+        display: block;
+        margin-top: $spacing-unit/3;
+        line-height: $base-line-height * $base-font-size * 0.9;
+        @include relative-font-size(0.85);
+      }
+      .ano {
+        @include smcaps(2px);
+        @include relative-font-size(0.85);
+        line-height: $base-line-height * $base-font-size * 0.9;
+      }
+  }
+
+ .listinha {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    .categories {
+      line-height: $base-line-height * $base-font-size * 1;
+      display: block;
+      text-align: left;
+      margin-top: $spacing-unit;
+      padding-bottom: $spacing-unit/3;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      li:first-of-type {
+        display: none;
+        visibility: hidden;
+        height: 0;
+        width: 0;
+        overflow: hidden;
+      }
+      li {
+        padding: $spacing-unit/3 0;
+        border-top: 1px solid #000;
+      }
+      .autor {
+          display: block;
+          @include smcaps(2px);
+          margin-bottom: $spacing-unit/10;
+          @include relative-font-size(0.85);
+        }
+      .contributor {
+        @include relative-font-size(0.75);
+      }
+    }
+  &.imagens-indice {
+    .categories {
+      display: block;
+      text-align: center;
+    }
+    li.indice-livro {
+        padding: 0;
+        border: 1px solid $grey-color-light;
+      }
+    .livrinho {
+      padding: $spacing-unit/2 $spacing-unit/2 $spacing-unit/4 0;
+       @include media-query($on-palm) {
+        padding: $spacing-unit/4 $spacing-unit/4 $spacing-unit/4 $spacing-unit/4;
+      }
+      .autor{
+        @include relative-font-size(0.75);
+        line-height: $base-line-height * $base-font-size * 0.75;
+        }
+    }
+  }
+ }
+
+/**
+ * imagens
+ */
+
+ .card-columns {
+  column-count: 6;
+  @media #{$tablet} {
+    column-count: 4;
+  }
+  @include media-query($on-palm) {
+    column-count: 1;
+  }
+  .card {
+    border: 0;
+  }
+}
+
+
+/**
+ * imagens gerador de índices
+ */
+@media print {
+  @page {
+  size: A4 landscape;
+  }
+  body {
+    font-family: Georgia, serif;
+  }
+  .indice-livro {
+    width: 200px;
+  }
+  a.site-title {
+    text-align: center;
+    display: block;
+  }
+  .listinha ul .autor {
+    letter-spacing: 0px;
+    font-size: 8px;
+  }
+  .livrinho a.h6 {
+    font-size: 12px;
+  }
+  .dontprint
+    { display: none; }
+  .site-header {
+        padding: 0 $spacing-unit/3 $spacing-unit/3 $spacing-unit/3;
+  }
+  .mywrapper {
+    padding: 0 50px;
+  }
+
+  body {
+    @include relative-font-size(0.65);
+  }
+}
+
+/**
+ * páginas
+ */
+
+span.smcaps {
+  @include smcaps(2px);
+  @include relative-font-size(0.85);
+}
+
+blockquote {
+  color: $text-color;
+  border-left: 0;
+  padding-left: $spacing-unit;
+  @include relative-font-size(0.9);
+  letter-spacing: 0px;
+  font-style: normal;
+} 
+
+.toc-item {
+  display: block;
+  @include smcaps(1px);
+  @include relative-font-size(0.85);
+}
+
+
+.page {
+  p:first-of-type {
+    margin-bottom: 0px;
+  }
+   h6 {
+    @include smcaps(2px);
+    @include relative-font-size(0.95);
+  }
+  .txt {
+    padding: $spacing-unit/2 $spacing-unit;
+    h4 {
+    @include smcaps(2px);
+    @include relative-font-size(1.35);
+    margin-top: 0px;
+    }
+    h6 {
+      margin-bottom: $spacing-unit/10;
+      margin-top: $spacing-unit;
+      }
+  }
+  h6.small {
+    line-height: $base-line-height * $base-font-size * 0.75;
+    @include relative-font-size(0.65);
+  }
+
+}
+
+#markdown-toc {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  li a {
+  @include smcaps(2px);
+  @include relative-font-size(0.85);
+  }
+}
+
+@mixin pagina-esquerda {
+  text-transform: uppercase;
+  position: absolute;
+  top: $spacing-unit;
+  @include relative-font-size(0.75);
+  color: $grey-color;
+}
+
+@mixin pagina-direita {
+  text-transform: uppercase;
+  position: absolute;
+  top: $spacing-unit;
+  right: $spacing-unit/2;
+  @include relative-font-size(0.75);
+  color: $grey-color;
+}
+
+
+
+
+
+.page-break.g-visible.um:before {
+  content: "p. 4";
+  @include pagina-esquerda;
+}
+.page-break.g-visible.dois:before {
+  content: "p. 6";
+  @include pagina-esquerda;
+}
+.page-break.g-visible.tres:before {
+  content: "p. 8";
+  @include pagina-esquerda;
+}
+.page-break.g-visible.quatro:before {
+  content: "p. 10";
+  @include pagina-esquerda;
+}
+.page-break.g-visible.cinco:before {
+  content: "p. 12";
+  @include pagina-esquerda;
+}
+.page-break.g-visible.seis:before {
+  content: "p. 14";
+  @include pagina-esquerda;
+}
+.page-break.g-visible.sete:before {
+  content: "p. 16";
+  @include pagina-esquerda;
+}
+.page-break.g-visible.oito:before {
+  content: "p. 18";
+  @include pagina-esquerda;
+}
+.page-break.g-visible.nove:before {
+  content: "p. 20";
+  @include pagina-esquerda;
+}
+.page-break.g-visible.dez:before {
+  content: "p. 22";
+  @include pagina-esquerda;
+}
+.page-break.g-visible.onze:before {
+  content: "p. 24";
+  @include pagina-esquerda;
+}
+.page-break.g-visible.doze:before {
+  content: "p. 26";
+  @include pagina-esquerda;
+}
+.page-break.g-visible.treze:before {
+  content: "p. 28";
+  @include pagina-esquerda;
+}
+.page-break.g-visible.catorze:before {
+  content: "p. 30";
+  @include pagina-esquerda;
+}
+.page-break.g-visible.quinze:before {
+  content: "p. 32";
+  @include pagina-esquerda;
+}
+.page-break.g-visible.desassseis:before {
+  content: "p. 34";
+  @include pagina-esquerda;
+}
+.page-break.g-visible.desassete:before {
+  content: "p. 36";
+  @include pagina-esquerda;
+}
+.page-break.g-visible.dezoito:before {
+  content: "p. 38";
+  @include pagina-esquerda;
+}
+.page-break.g-visible.dezanove:before {
+  content: "p. 40";
+  @include pagina-esquerda;
+}
+.page-break.g-visible.vinte:before {
+  content: "p. 42";
+  @include pagina-esquerda;
+}
+.page-break.g-visible.vinte-e-um:before {
+  content: "p. 44";
+  @include pagina-esquerda;
+}
+.page-break.g-visible.vinte-e-dois:before {
+  content: "p. 46";
+  @include pagina-esquerda;
+}
+.page-break.g-visible.vinte-e-tres:before {
+  content: "p. 48";
+  @include pagina-esquerda;
+}
+.page-break.g-visible.vinte-e-seis:before {
+  content: "p. 50";
+  @include pagina-esquerda; 
+}
+.page-break.g-visible.vinte-e-quatro:before {
+  content: "p. 52";
+  @include pagina-esquerda;
+}
+.page-break.g-visible.vinte-e-cinco:before {
+  content: "p. 54";
+  @include pagina-esquerda;
+}
+
+
+.page-break.g-visible.um:after {
+  content: "p. 5";
+  @include pagina-direita;
+}
+.page-break.g-visible.dois:after {
+  content: "p. 7";
+  @include pagina-direita;
+}
+.page-break.g-visible.tres:after {
+  content: "p. 9";
+  @include pagina-direita;
+}
+.page-break.g-visible.quatro:after {
+  content: "p. 11";
+  @include pagina-direita;
+}
+.page-break.g-visible.cinco:after {
+  content: "p. 13";
+  @include pagina-direita;
+}
+.page-break.g-visible.seis:after {
+  content: "p. 15";
+  @include pagina-direita;
+}
+.page-break.g-visible.sete:after {
+  content: "p. 17";
+  @include pagina-direita;
+}
+.page-break.g-visible.oito:after {
+  content: "p. 19";
+  @include pagina-direita;
+}
+.page-break.g-visible.nove:after {
+  content: "p. 21";
+  @include pagina-direita;
+}
+.page-break.g-visible.dez:after {
+  content: "p. 23";
+  @include pagina-direita;
+}
+.page-break.g-visible.onze:after {
+  content: "p. 25";
+  @include pagina-direita;
+}
+.page-break.g-visible.doze:after {
+  content: "p. 27";
+  @include pagina-direita;
+}
+.page-break.g-visible.treze:after {
+  content: "p. 29";
+  @include pagina-direita;
+}
+.page-break.g-visible.catorze:after {
+  content: "p. 31";
+  @include pagina-direita;
+}
+.page-break.g-visible.quinze:after {
+  content: "p. 33";
+  @include pagina-direita;
+}
+.page-break.g-visible.desassseis:after {
+  content: "p. 35";
+  @include pagina-direita;
+}
+.page-break.g-visible.desassete:after {
+  content: "p. 37";
+  @include pagina-direita;
+}
+.page-break.g-visible.dezoito:after {
+  content: "p. 39";
+  @include pagina-direita;
+}
+.page-break.g-visible.dezanove:after {
+  content: "p. 41";
+  @include pagina-direita;
+}
+.page-break.g-visible.vinte:after {
+  content: "p. 43";
+  @include pagina-direita;
+}
+.page-break.g-visible.vinte-e-um:after {
+  content: "p. 45";
+  @include pagina-direita;
+}
+.page-break.g-visible.vinte-e-dois:after {
+  content: "p. 47";
+  @include pagina-direita;
+}
+.page-break.g-visible.vinte-e-tres:after {
+  content: "p. 49";
+  @include pagina-direita;
+}
+.page-break.g-visible.vinte-e-seis:after {
+  content: "p. 51";
+  @include pagina-direita;
+}
+.page-break.g-visible.vinte-e-quatro:after {
+  content: "p. 53";
+  @include pagina-direita;
+}
+.page-break.g-visible.vinte-e-cinco:after {
+  content: "p. 55";
+  @include pagina-direita;
+}
+
