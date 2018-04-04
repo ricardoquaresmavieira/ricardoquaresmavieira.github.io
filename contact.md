@@ -12,8 +12,6 @@ img: 19
 [www.ricardoquaresmavieira.com](http://www.ricardoquaresmavieira.com)    
 ###### Email 
 [bunker.mail@gmail.com](mailto:bunker.mail@gmail.com)  
-###### Phone 
-(+351) 213470408  
 
 ###### Advertisement agent/booking
 [www.quioto.com](http://www.quioto.com)  
